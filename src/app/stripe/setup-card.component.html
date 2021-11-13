@@ -1,0 +1,44 @@
+<div class="container mt-5">
+
+    <input id="card-holder-name" type="text">
+
+    <!-- Stripe Elements Placeholder -->
+    <div id="card-element"></div>
+
+    <button id="card-button">
+        Process Payment
+    </button>
+
+</div>
+
+
+<!-- Formulario Strip setup card -->
+<script>
+
+    // Este crea el formulario de la tarjeta
+    const stripe = Stripe('pk_live_51JRiEIEDzo7bolN0lD3HL3bvc8EjTZFupOWKYFtStB7hLsBOy9DfkEjScIOMfxRMAnmZ4icgvJSSXsw9qlMLhrhD00NN8HoFSb');
+
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+
+    cardElement.mount('#card-element');
+
+
+    // Enviamos el card setup a stripe
+    const cardHolderName = document.getElementById('card-holder-name');
+    const cardButton = document.getElementById('card-button');
+
+    cardButton.addEventListener('click', async (e) => {
+        const { paymentMethod, error } = await stripe.createPaymentMethod(
+            'card', cardElement, {
+            billing_details: { name: cardHolderName.value }
+        }
+        );
+
+        if (error) {
+            // Display "error.message" to the user...
+        } else {
+            // The card has been verified successfully...
+        }
+    });
+</script>

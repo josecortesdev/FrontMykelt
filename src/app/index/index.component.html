@@ -1,0 +1,201 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <svg viewBox="100 -15 800 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100%" id="blobSvg">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: rgb(249, 245, 238);"></stop>
+                <stop offset="100%" style="stop-color: rgb(255, 247, 228);"></stop>
+            </linearGradient>
+        </defs>
+        <path id="blob"
+            d="M466,298.5Q467,347,428.5,376Q390,405,347.5,412.5Q305,420,264.5,457.5Q224,495,188.5,456.5Q153,418,116,396Q79,374,62,334Q45,294,27,246.5Q9,199,32,153.5Q55,108,102.5,92.5Q150,77,187.5,46Q225,15,271,29.5Q317,44,353.5,69.5Q390,95,407.5,133.5Q425,172,445,211Q465,250,466,298.5Z"
+            fill="url(#gradient)"></path>
+    </svg>
+
+
+    <div class="container d-flex align-items-center my-5 py-5 my-lg-0 pt-lg-0" id="home1">
+        <div class=" d-flex flex-column flex-lg-row  mx-lg-5 " [style.max-width.px]="2000">
+
+            <div class=" ">
+                <p class="h1"> Tecnología y criptomonedas. </p>
+
+
+                <p class="mt-4 fonthome">Revisiones de las <span class=" py-0">novedades tecnológicas</span> y análisis
+                    de los mejores proyectos de <span class=" py-0">criptomonedas.</span></p>
+
+
+                <div class="mt-4 d-flex flex-column  flex-lg-row mb-5" *ngIf="!nombreUsuario">
+                    <div class="mx-0 px-0 mr-lg-3 mt-3 text-center">
+
+                        <button class="btn btn-outline-dark py-2   mt-sm-2 corner bold600 " routerLink="/login"
+                            [style.min-width.px]="150">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+
+                    <div class="mx-0 px-0 mt-3 text-center">
+                        <!-- cta -->
+                        <button class="btn-grad  py-2 shadow mt-sm-2 corner bold600 " routerLink="/registro"
+                            [style.min-width.px]="150">
+                            Registrarse
+                        </button>
+                    </div>
+
+                </div>
+
+
+
+                <div *ngIf="nombreUsuario" class="">
+
+                    <div class="fonthome mt-4">Hola {{userName}} ({{userEmail}}). </div>
+                    <div class="fonthome ">Ahora puedes añadir productos en la cesta.</div>
+
+                    <div class="mt-4 d-flex justify-content-start">
+                        <button class="btn btn-dark py-2 px-4 shadow my-2 corner bold600 " routerLink="/cart">
+                            Ir a la cesta
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mt-3">
+                <img src="assets/imgs/darkelephant.png" class="img-fluid w-100" style="max-width: 500px;">
+            </div>
+
+        </div>
+
+        <!-- 
+        <div *ngIf="oauth" class="m-lg-5">
+
+            <div class="h5 mt-4">Cuenta iniciada con OAUTH. </div>
+            <div class="h5 mt-4">Puede acceder a la selección de productos. </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <button class="btn boton btn-block col-lg-4 shadow " routerLink="/lista">
+                    Ir a la lista
+                </button>
+            </div>
+
+        </div> -->
+    </div>
+
+
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100%" id="blobSvg">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: rgb(249, 245, 238);"></stop>
+                <stop offset="100%" style="stop-color: rgb(255, 217, 129);"></stop>
+            </linearGradient>
+        </defs>
+        <path id="blob"
+            d="M466,295Q452,340,427,379.5Q402,419,357,430.5Q312,442,269,462Q226,482,191,447.5Q156,413,122,390Q88,367,65,330.5Q42,294,49.5,251.5Q57,209,60.5,162Q64,115,110.5,102Q157,89,194,80.5Q231,72,272.5,63Q314,54,347,80Q380,106,400,140Q420,174,450,212Q480,250,466,295Z"
+            fill="url(#gradient)"></path>
+    </svg>
+
+
+
+    <div class="blackbackground text-white pb-0 mb-5 pt-5 pt-lg-4">
+
+        <div class="container col-md-8" [style.max-width.px]="1000">
+
+            <div class="d-flex align-items-center flex-column flex-lg-row ">
+
+                <div class="flex-fill mb-3">
+                    <p class="h2 bold600 text-left">Fundas elegantes y resistentes</p>
+                </div>
+
+                <div class="flex-fill mx-lg-5">
+                    <img src="assets/imgs/fundahome.png" class="img-fluid mx-auto d-block mb-0 pb-0"
+                        style="min-width: 200px;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container my-5 pt-1 pb-1 ">
+        <div class="d-flex align-items-center flex-column flex-md-row my-5">
+            <div class="p-2 flex-fill mb-3">
+                <img src="assets/imgs/hbitcoin.png" class="img-fluid mx-auto d-block" style="min-width: 150px;">
+            </div>
+            <div class="p-2 flex-fill mx-lg-5 fonthome">Descubre uno de los espacios más apasionantes en los últimos
+                años desde el plano de la inversión. Transacciones en menos de 10 minutos con Bitcoin, sin necesidad de
+                un tercero con Ethereum o más escalables como Cardano.</div>
+        </div>
+
+        <!-- <svg viewBox="100 -15 800 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100%" id="blobSvg">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: rgb(249, 245, 238);"></stop>
+                <stop offset="100%" style="stop-color: rgb(255, 247, 228);"></stop>
+            </linearGradient>
+        </defs>
+        <path id="blob"
+            d="M466,298.5Q467,347,428.5,376Q390,405,347.5,412.5Q305,420,264.5,457.5Q224,495,188.5,456.5Q153,418,116,396Q79,374,62,334Q45,294,27,246.5Q9,199,32,153.5Q55,108,102.5,92.5Q150,77,187.5,46Q225,15,271,29.5Q317,44,353.5,69.5Q390,95,407.5,133.5Q425,172,445,211Q465,250,466,298.5Z"
+            fill="url(#gradient)"></path>
+    </svg> -->
+
+
+        <svg viewBox="0 0 90 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="90%" id="blobSvg">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color: rgb(249, 245, 238);"></stop>
+                    <stop offset="100%" style="stop-color: rgb(238, 182, 51);"></stop>
+                </linearGradient>
+            </defs>
+            <path id="blob"
+                d="M460,292.5Q440,335,406.5,361Q373,387,344,418Q315,449,270.5,462.5Q226,476,194,439Q162,402,113,393.5Q64,385,68,336.5Q72,288,69,249.5Q66,211,68.5,165.5Q71,120,103.5,86.5Q136,53,182.5,51.5Q229,50,274.5,42Q320,34,359,60Q398,86,432.5,119.5Q467,153,473.5,201.5Q480,250,460,292.5Z"
+                fill="url(#gradient)"></path>
+        </svg>
+
+        <div class="d-flex align-items-center flex-column-reverse flex-md-row mb-5">
+            <div class="p-2 flex-fill mx-lg-5 fonthome">M1 es un chip mucho más rápido que los anteriores, proporciona
+                un rendimiento y una duración de la batería drásticamente mejores. El MacBook Air con M1 es
+                increíblemente rápido y completamente silencioso, ya que no tiene ventilador.</div>
+            <div class="p-2 flex-fill bd-highlight mb-3">
+                <img src="assets/imgs/hm1.png" class="img-fluid mx-auto d-block" style="min-width: 150px;">
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center flex-column flex-md-row mb-5">
+            <div class="p-2 flex-fill mb-3">
+                <img src="assets/imgs/hcart.png" class="img-fluid mx-auto d-block" style="min-width: 150px;">
+            </div>
+            <div class="p-2 flex-fill mx-lg-5 fonthome">Fundas aptas para carga inalámbrica, hechas de una mezcla de
+                poliuretano termoplástico (TPU) y Policarbonato (PC). La parte trasera es de policarbonato, sólida y
+                duradera.</div>
+        </div>
+    </div>
+
+    <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100%" id="blobSvg">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: rgb(249, 245, 238);"></stop>
+                <stop offset="100%" style="stop-color: rgb(248, 220, 155);"></stop>
+            </linearGradient>
+        </defs>
+        <path id="blob"
+            d="M460,292.5Q440,335,406.5,361Q373,387,344,418Q315,449,270.5,462.5Q226,476,194,439Q162,402,113,393.5Q64,385,68,336.5Q72,288,69,249.5Q66,211,68.5,165.5Q71,120,103.5,86.5Q136,53,182.5,51.5Q229,50,274.5,42Q320,34,359,60Q398,86,432.5,119.5Q467,153,473.5,201.5Q480,250,460,292.5Z"
+            fill="url(#gradient)"></path>
+    </svg>
+
+    <div class="container">
+        <p class="display-4 bold600 text-center my-5 py-4">Artículos que pueden interesarte</p>
+    </div>
+
+
+    <app-lista-post></app-lista-post>
+    <br>
+
+</div>
+<app-footer></app-footer>

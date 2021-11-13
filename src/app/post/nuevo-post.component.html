@@ -1,0 +1,69 @@
+<app-menu></app-menu>
+<div class="wrapper">
+
+    <div class="py-5">
+
+        <div class=" container col-lg-7 bg-white  my-5 py-4 px-3 border px-4">
+
+        <div>   
+            <ngx-dropzone class="mx-5" [style.min-height.px]="300" (change)="onSelect($event)" >
+                <ngx-dropzone-label class="h2">Arrastra y suelta una imagen</ngx-dropzone-label>
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)" class="mx-auto"  [style.min-height.px]="250">
+                    <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+                  </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+            <!-- <div>
+                <button (click)="onUpload()">Subir</button>
+            </div> -->
+        </div> 
+
+            <form (ngSubmit)="onUpload()" novalidate #f="ngForm">
+
+                <div class="form-group">
+
+                    <!-- <input (change)="captura($event)" type="file"> -->
+                    <!-- Change detecta cuando el input tiene un cambio.
+                Le ponemos la función capturar con el parámetro evento -->
+                </div>
+
+                <div *ngIf="previsualizacion">
+                    <img width="500px" [src]="previsualizacion" alt="">
+                </div>
+
+
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required
+                        placeholder="Escribe aquí el nombre">
+                </div>
+
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="header" name="header" [(ngModel)]="header" required
+                        placeholder="Escribe aquí el header">
+                </div>
+
+                <div class="form-group mt-5">
+
+
+                    <ckeditor id="editor" [editor]="Editor" [config]='config' data="<p>Hello, world!</p>"
+                        [(ngModel)]="body" name="body"></ckeditor>
+
+                </div>
+
+                <div class="d-flex justify-content-around mt-5">
+                    <a class="linkmin btn" routerLink="/admin"> Volver </a>
+                    <button class="btn btn-dark corner bold600 px-5" [disabled]="!f.valid">
+
+                        Crear
+                    </button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>

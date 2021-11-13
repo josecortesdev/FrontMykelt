@@ -1,0 +1,117 @@
+<app-menu></app-menu>
+<div class="wrapper">
+
+  <div class="container my-5 col-11 col-sm-7 justify-content-center bg-white border corner shadow-lg py-5 px-md-5"
+    *ngIf="isLogged && cargado==false">
+    <p class="h2">No tienes productos en el carrito</p>
+  </div>
+
+  <div class="container my-5 col-11 col-sm-7 justify-content-center bg-white border corner shadow-lg py-5 px-md-5"
+    *ngIf="!isLogged">
+    <div class="container d-flex justify-content-center ">
+      <p class="display-4 bold600 text-center ">Cesta</p>
+    </div>
+
+
+    <div class="container d-flex justify-content-center mt-3">
+
+      <div class="d-flex flex-column">
+        <div class="h2  mb-3">
+          <p>
+            Inicia sesión para ver el carrito
+          </p>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-dark corner" routerLink="/login">
+            Iniciar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cargado==true">
+
+    <div class="container d-flex justify-content-around flex-wrap pt-3 my-5 py-5">
+      <!-- cartProducts es el array que contiene la información de los productos que necesitamos para la vista -->
+      <div class="col-lg-5" *ngFor="let cartProduct of cartProducts" [style.max-width.px]="400">
+
+        <div class="card mb-5 cardstyle mx-0 my-0 px-4 pt-4 pb-0 corner shadow">
+          <table class="table table-borderless d-inline">
+            <tr>
+              <td>
+                <div class="mt-3">
+                  <label class="containerBox">
+                    <!--  La variable select es para saber si se ha hecho el check  -->
+                    <input type="checkbox" [(ngModel)]="cartProduct.select"
+                      (ngModelChange)="boxChange(cartProduct.metadata.price, cartProduct.quantity, cartProduct.select)">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="container d-flex justify-content-center">
+              <a routerLink="/productos/{{cartProduct.id}}">
+                <img [src]="cartProduct.images" class="img-fluid cornerlista mx-auto d-block">
+              </a>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="mt-3"> <a class="h2" routerLink="/productos/{{cartProduct.id}}">{{cartProduct.name}}</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="listheader"> {{cartProduct.metadata.price | number:'1.2-2':'es'}} €</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+
+                <button class=" mx-0 px-0 pointer text-dark remove"
+                  (click)="resta(cartProduct.id, cartProduct.quantity)" [disabled]="cartProduct.quantity<2">
+                  <i class="fas fa-minus-circle fa-lg"></i>
+                </button>
+                {{cartProduct.quantity}}
+                <a class=" mx-0 px-0 pointer text-dark" (click)="suma(cartProduct.id, cartProduct.quantity)">
+                  <i class="fas fa-plus-circle fa-lg"></i>
+                </a>
+                &nbsp; &nbsp;
+                <a class="mx-0 px-0 pointer text-dark" (click)="borrar(cartProduct.idDB)">
+                  <i class="far fa-trash-alt fa-lg"></i>
+                </a>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="fixed-bottom bg-dark text-white border-top cornertop mx-md-5 mx-2 shadow" *ngIf="isLogged">
+    <div class="container">
+      <div class="my-3 mx-lg-5" [style.max-width.px]="2000">
+
+        <div class="row  ">
+          <div class="col-auto mr-auto col align-self-center mt-1 ml-2">Total: <span class="bold600">{{PrecioTotal |
+              number:'1.2-2':'es'}} €</span></div>
+          <div class="col-auto col align-self-center mr-2">
+            <button class="btn cta corner text-white bold600 py-2 px-4 shadow-sm" (click)="pagar()">
+              COMPRAR
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

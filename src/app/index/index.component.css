@@ -1,0 +1,30 @@
+@media screen and (min-width: 1000px) {
+    #home1 {
+        height:85vh;
+    }
+  }
+
+  svg{
+    z-index: -100;
+  }
+
+  .fonthome{
+    font-size: 20px;
+  }
+
+  .btn-grad {background-image: linear-gradient(to right, #ffb347 0%, #ffcc33  51%, #eeb633  100%)}
+  .btn-grad {
+    
+     padding: 15px 35px;
+     text-align: center;
+     transition: 0.5s;
+     background-size: 200% auto;
+     border:none;
+  
+   }
+
+   .btn-grad:hover {
+     background-position: right center; 
+     text-decoration: none;
+   }
+  

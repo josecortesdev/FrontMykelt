@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<div class="wrapper">
+
+
+  <div class="container ">
+
+    <p class="display-4 bold600 text-center my-5 py-4">Productos </p>
+
+    <!-- Si aún no se ha cargado, muestra el spinner -->
+    <div *ngIf="cargado==false" class="text-center my-5">
+      <div class="spinner-border" role="status"></div>
+    </div>
+
+    <!-- Si ya se ha cargado, muestra el div -->
+    <div *ngIf="cargado==true" class="container d-flex justify-content-around flex-wrap">
+      <div class="  d-flex justify-content-center mt-5" *ngFor="let producto of productos | paginate: { 
+        itemsPerPage: 6, 
+        currentPage: page, 
+        totalItems: totalLenght
+      }">
+
+
+        <div class="card mb-5 cardstyle mx-0 my-0 p-4 p-sm-5  pb-5 corner shadow" [style.max-width.px]="400">
+
+
+          <div class="container d-flex justify-content-center">
+
+            <a routerLink="/productos/{{producto.id}}">
+              <img [src]="producto.images" class="img-fluid cornerlista mx-auto d-block">
+            </a>
+
+          </div>
+
+          <div class="mt-3 "> <a class="h5" routerLink="/productos/{{producto.id}}">{{producto.name}}</a> </div>
+          <div class="listheader"> {{producto.metadata.price | number:'1.2-2':'es'}} € </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="error-message"></div>
+
+
+  <div class="container mb-5">
+
+    <pagination-controls class="my-pagination text-center" (pageChange)="onPageChange($event)" previousLabel=""
+      nextLabel="" directionLinks="false"></pagination-controls>
+  </div>
+
+</div>
+<app-footer></app-footer>

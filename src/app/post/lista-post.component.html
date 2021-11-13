@@ -1,0 +1,67 @@
+<app-menu *ngIf="router.url === '/blog'"></app-menu>
+
+<div class="wrapper">
+
+  <p class="display-4 bold600 text-center my-5 py-4" *ngIf="router.url === '/blog'">Blog</p>
+
+
+  <div class="container d-flex justify-content-around flex-wrap">
+    <div class="col-lg-5 mt-5 " *ngFor="let post of posts.slice().reverse() | paginate: { 
+      itemsPerPage: 6, 
+      currentPage: page, 
+      totalItems: totalLength
+    }">
+
+
+      <div class="card cardstyle mt-0 mb-5 px-3 px-md-4 pt-3 pt-md-4 pb-0 corner shadow">
+
+        <table class="table table-borderless d-inline">
+          <tr>
+
+            <a routerLink="{{post.id}}" *ngIf="router.url === '/blog'">
+              <img src="{{post.imageURL}}" class="img-fluid cornerlista mx-auto d-block">
+            </a>
+
+            <a routerLink="blog/{{post.id}}" *ngIf="router.url !== '/blog'">
+              <img src="{{post.imageURL}}" class="img-fluid cornerlista mx-auto d-block">
+            </a>
+
+          </tr>
+          <tr>
+            <td>
+              <div class="mt-3">
+                <a class="h4" routerLink="{{post.id}}" *ngIf="router.url === '/blog'">{{post.name}}</a>
+                <a class="h4" routerLink="blog/{{post.id}}" *ngIf="router.url !== '/blog'">{{post.name}}</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="listheader"> {{post.header}} </div>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-dark btn-block corner mt-3" routerLink="{{post.id}}"
+                *ngIf="router.url === '/blog'">Ver artículo </button>
+              <button class="btn btn-dark btn-block corner mt-3" routerLink="blog/{{post.id}}"
+                *ngIf="router.url !== '/blog'">Ver artículo </button>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container mb-5" *ngIf="router.url === '/blog'">
+    <pagination-controls class="my-pagination text-center" (pageChange)="onPageChange($event)" previousLabel=""
+      nextLabel="" directionLinks="false"></pagination-controls>
+  </div>
+
+</div>
+
+<app-footer *ngIf="router.url === '/blog'"></app-footer>

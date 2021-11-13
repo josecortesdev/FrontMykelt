@@ -1,0 +1,21 @@
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #161c2d;
+    border-radius: 30%;
+
+    margin: 10px;
+  }
+
+  .my-pagination /deep/ .ngx-pagination .current:hover {
+    background: #161c2d;
+    border-radius: 30%;
+  }
+
+  .my-pagination /deep/ .ngx-pagination  {
+   padding: 50px;
+  }
+
+  .my-pagination /deep/ .ngx-pagination :hover {
+    background: #161c2d;
+    border-radius: 30%;
+    color: #ffffff;
+  }

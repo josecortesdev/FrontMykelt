@@ -1,0 +1,31 @@
+
+
+<div class="wrapper">
+<div class="bg-white">
+
+  <app-menu></app-menu>
+
+    <div *ngIf="post" class="py-5">
+      <div class="container  bg-white  my-5 py-4 px-3">
+
+        <div class="display-4 font-weight-bold mb-5 col-lg-10 mx-auto postname" [style.max-width.px]="800">{{post.name}}</div>
+
+        <div class="mb-2 p-5 mx-auto bgheader fontheader" [style.max-width.px]="800">{{post.header}}</div>
+      </div>
+
+      <div class="mx-2">
+        <img src="{{post.imageURL}}" class="img-fluid corner mx-auto d-block mb-4">
+      </div>
+
+      <br>
+
+      <div class="container  my-5" [style.max-width.px]="800">
+        <div class="fontbody" [innerHTML]="post.body"></div>
+      </div>
+
+    </div>
+
+</div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,15 @@
+html, .footer{
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+
+@media screen and (min-width: 2000px) { 
+
+    .flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+ }

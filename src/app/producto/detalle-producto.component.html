@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+<div class="wrapper">
+
+  <div class="container  text-center mt-5 ">
+    <span class="" id=""></span>
+  </div>
+
+
+  <!-- Si aún no se ha cargado, muestra el spinner -->
+  <div *ngIf="cargado==false" class="text-center my-5">
+    <div class="spinner-border" role="status"></div>
+  </div>
+
+  <!-- Si ya se ha cargado, muestra el div -->
+  <div *ngIf="cargado==true" class="container ">
+
+    <div class="card mb-5 cardstyle mx-0 my-0 p-4 p-sm-5 pb-0 corner shadow  d-flex  flex-row flex-wrap">
+
+      <div class="container d-flex align-items-center" [style.max-width.px]="400">
+        <img [src]="producto.images" class="img-fluid cornerlista">
+      </div>
+
+      <div class="" [style.max-width.px]="600">
+
+        <table class="table table-borderless d-inline">
+
+          <tr class="container d-flex justify-content-center">
+
+
+          </tr>
+
+          <tr>
+            <td>
+              <div class="mt-3">
+                <p class="h5">{{producto.name}}</p>
+              </div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <div class="h3"> {{producto.metadata.price | number:'1.2-2':'es'}} € </div>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+
+              <a class=" mx-0 px-0 pointer text-dark" (click)="resta()">
+                <i class="fas fa-minus-circle fa-lg"></i>
+              </a>
+              {{quantity}}
+
+              <a class=" mx-0 px-0 pointer text-dark" (click)="suma()">
+                <i class="fas fa-plus-circle fa-lg"></i>
+              </a>
+
+
+            </td>
+          </tr>
+
+          <tr *ngIf="!isLogged">
+            <td>
+              <button class="btn btn-dark corner" routerLink="/login"> Inicia sesión para añadir a la cesta </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="isLogged">
+            <td>
+
+
+              <button class="btn btn-dark corner" (click)="addCart(producto.id, quantity)"> Añadir a la cesta </button>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <div class="listheader"> {{producto.metadata.description}} </div> <br>
+              <div class="listheader"> <i class="fas fa-check"></i> {{producto.metadata.d1}} </div>
+              <div class="listheader"> <i class="fas fa-check"></i> {{producto.metadata.d2}} </div>
+              <div class="listheader"> <i class="fas fa-check"></i> {{producto.metadata.d3}} </div>
+            </td>
+          </tr>
+
+
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

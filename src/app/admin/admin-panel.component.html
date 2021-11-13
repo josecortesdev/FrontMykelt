@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+
+<div class="wrapper">
+
+  <p class="display-4 bold600 text-center my-5 py-4">Dashboard</p>
+
+  <div class="container my-5 py-5">
+
+
+    <div class="card corner shadow py-2 py-lg-5 mb-5">
+
+      <div class="ml-2 m-md-4 px-lg-5">
+        <p class="h3"> Artículos &nbsp; <button class="btn btn-dark corner bold600" routerLink="nuevo"> Crear artículo
+          </button> </p>
+      </div>
+
+
+      <div class="d-flex flex-column-reverse bd-highlight mb-3 ">
+
+        <div class="bd-highlight mb-3 admintable px-3  py-2" *ngFor="let post of posts">
+
+          <div class="px-lg-5">
+
+            <a class="h3" routerLink="blog/{{post.id}}">{{post.name}}</a>
+
+            <div class="listheader mt-2"> {{post.header}} </div>
+
+
+            <div class="mt-2">
+              <button class="btn px-0 menulink bold600" routerLink="../blog/{{post.id}}">Ver artículo </button>
+              &nbsp;
+              <button class="btn px-0 menulink bold600" routerLink="editar/{{post.id}}">Editar </button>
+              &nbsp;
+
+              <button class="btn px-0 menulink bold600" (click)="borrar(post.id)">Borrar </button>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>
