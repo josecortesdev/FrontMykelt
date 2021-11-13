@@ -6,10 +6,10 @@ Frontend desarrollado en Angular que conecta con el Backend (API REST hecha con 
 
 <a href="https://github.com/josecortesdev/BackMykelt" target="_blanc"> Ver Backend de la aplicación mykelt.com </a>
 
-## Explicación del funcionamiento de mykelt.com
+## Qué es mykelt.com
 Mykelt es una aplicación web que hice para un cliente que necesita un ecommerce y blog personalizados. Soporta autenticación OAuth y es posible registrarse con la cuenta de Google. También incluye pagos con Stripe.
 
-Tecnologías principales.
+### Tecnologías principales.
 El frontend está hecho en Angular y el backend es una API REST hecha con Laravel. Utilizo los paquetes de Laravel Cashier (Stripe) y Socialite.
 
 Ecommerce.
